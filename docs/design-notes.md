@@ -47,3 +47,19 @@
 | 13 | Interactions | 9 | Hover peek, reel playback, layer tabs — no console errors |
 | 14 | Mobile about/clinics | 8.5 | — |
 | 15 | Launch | — | vercel.json caching, sitemap, robots, 404, reels recompressed |
+
+## Premium pass (v2) — 24 Oct 2026
+
+Font shoot-out (rendered with real copy): Cormorant Garamond 8.5 · Gilda 8 · Bodoni Moda 7.5 · Playfair 7 — script: Allura 9 (matches her "Appointment / Opening" posters) — sans: Jost 9 (matches her spaced "SKIN & AESTHETIC CLINIC" caps).
+Palette lifted from her posters: wine #6e1423, oxblood band, gold foil, cream card stock, invitation forest green, blush.
+
+| Area | Before | After | Change |
+|---|---|---|---|
+| Preloader | 6 | 9 | Glass lens; gold-foil monogram fills; ring tracks load; wordmark writes in; lens irises open onto the site |
+| Hero | 8 | 9 | Script accent line, glass credential chip with her photo, glass lens readout and rail |
+| Nav | 7.5 | 9 | Floating glass pill, gold scroll-progress line, glass dropdown |
+| New sections | — | 9 | Treatment marquee, press line, Signature Facial glass spotlight, 3-tap WhatsApp booking builder |
+| Clinic cards | 7.5 | 9 | Full-bleed photos with glass info panels |
+| Mobile | 8 | 9 | Glass dock (Book · Call · Ask) after the hero; chat docks above it |
+| Smoothness | 8 | 9 | Lenis lerp scroll, rAF-throttled scroll work, frame-rate independent 3D, page cross-fades, lighter blur on phones |
+| Scrollbar | — | — | Gold-on-oxblood themed scrollbars |

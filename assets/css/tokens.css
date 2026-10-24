@@ -1,86 +1,96 @@
-/* Hallmark · route: custom (tuned) · vibe: "candlelit clinic, wine and gold leaf, clinical precision"
- * paper: oklch(95.6% 0.014 78) · night: oklch(16.5% 0.014 40) · accent: oklch(38% 0.125 18) wine · metal: oklch(77% 0.085 78) gilt
- * display: Bodoni Moda (variable, opsz) · body: Geist · outlier: Geist Mono (skin-science readouts only)
- * axes: light + dark bands / high-contrast-serif / warm
+/* Hallmark · route: custom (tuned) · vibe: "oxblood, gold foil, cream card stock, clinical calm"
+ * palette lifted from Evessé's own posters: wine #6e1423 · oxblood band #4c0d0b · gold foil #c8a165 · cream #f3ebe1 · forest #3b5244 · blush band #edd5d0
+ * display: Cormorant Garamond (variable) · body + labels: Jost (variable) · script outlier: Allura (brand accent words only)
+ * axes: light + dark bands / classical-serif / warm
  */
 
 @font-face {
-  font-family: "Bodoni Moda";
-  src: url("../fonts/bodoni-moda.woff2") format("woff2-variations"), url("../fonts/bodoni-moda.woff2") format("woff2");
-  font-weight: 400 900;
-  font-style: normal;
-  font-display: swap;
+  font-family: "Cormorant Garamond";
+  src: url("../fonts/cormorant-garamond.woff2") format("woff2-variations"), url("../fonts/cormorant-garamond.woff2") format("woff2");
+  font-weight: 300 700; font-style: normal; font-display: swap;
 }
 @font-face {
-  font-family: "Geist";
-  src: url("../fonts/geist.woff2") format("woff2-variations"), url("../fonts/geist.woff2") format("woff2");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
+  font-family: "Jost";
+  src: url("../fonts/jost.woff2") format("woff2-variations"), url("../fonts/jost.woff2") format("woff2");
+  font-weight: 100 900; font-style: normal; font-display: swap;
 }
 @font-face {
-  font-family: "Geist Mono";
-  src: url("../fonts/geist-mono.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+  font-family: "Allura";
+  src: url("../fonts/allura.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
 }
-/* Metric-matched fallbacks so swapping fonts doesn't shift text */
-@font-face { font-family: "Bodoni Fallback"; src: local("Georgia"), local("Times New Roman"); size-adjust: 96%; ascent-override: 92%; descent-override: 24%; }
-@font-face { font-family: "Geist Fallback"; src: local("Arial"), local("Helvetica"); size-adjust: 103%; ascent-override: 90%; descent-override: 22%; }
+/* metric-matched fallbacks: no layout jump when fonts swap in */
+@font-face { font-family: "Cormorant Fallback"; src: local("Georgia"), local("Times New Roman"); size-adjust: 88%; ascent-override: 102%; descent-override: 30%; }
+@font-face { font-family: "Jost Fallback"; src: local("Arial"), local("Helvetica"); size-adjust: 97%; ascent-override: 104%; descent-override: 30%; }
 
 :root {
-  /* paper (light band) */
-  --color-paper: oklch(95.6% 0.014 78);
-  --color-paper-2: oklch(92.6% 0.018 74);
-  --color-paper-3: oklch(88.8% 0.022 70);
-  --color-ink: oklch(22% 0.022 30);
-  --color-ink-2: oklch(37% 0.02 32);
-  --color-muted: oklch(50% 0.02 40);
-  --color-rule: oklch(81% 0.022 62);
-  --color-rule-2: oklch(86% 0.02 66);
+  /* cream card stock (light band) */
+  --color-paper: oklch(95% 0.016 76);
+  --color-paper-2: oklch(92% 0.022 72);
+  --color-paper-3: oklch(88.5% 0.028 68);
+  --color-blush: oklch(89% 0.034 28);
+  --color-blush-2: oklch(84.5% 0.045 25);
+  --color-ink: oklch(25% 0.06 18);
+  --color-ink-2: oklch(38% 0.05 20);
+  --color-muted: oklch(50% 0.035 30);
+  --color-rule: oklch(82% 0.03 50);
+  --color-rule-2: oklch(87% 0.025 60);
 
-  /* night (dark band) */
-  --color-night: oklch(16.5% 0.014 40);
-  --color-night-2: oklch(20.5% 0.016 38);
-  --color-night-3: oklch(25.5% 0.018 40);
-  --color-cream: oklch(93.5% 0.02 80);
-  --color-cream-2: oklch(79% 0.024 72);
-  --color-cream-3: oklch(64% 0.024 66);
-  --color-night-rule: oklch(33% 0.022 52);
+  /* oxblood (dark band) */
+  --color-night: oklch(18.5% 0.042 18);
+  --color-night-2: oklch(22% 0.055 18);
+  --color-night-3: oklch(27% 0.07 19);
+  --color-cream: oklch(94% 0.02 78);
+  --color-cream-2: oklch(84% 0.03 60);
+  --color-cream-3: oklch(70% 0.035 45);
+  --color-night-rule: oklch(36% 0.06 22);
 
   /* brand */
-  --color-accent: oklch(38% 0.125 18);
-  --color-accent-hi: oklch(44% 0.14 18);
-  --color-accent-ink: oklch(95.6% 0.014 78);
-  --color-gilt: oklch(77% 0.085 78);
+  --color-accent: oklch(36% 0.125 18);       /* Evessé wine */
+  --color-accent-hi: oklch(42% 0.14 18);
+  --color-accent-ink: oklch(95% 0.016 76);
+  --color-gilt: oklch(76% 0.088 76);          /* gold foil */
   --color-gilt-hi: oklch(84% 0.08 82);
-  --color-gilt-dim: oklch(58% 0.065 70);
-  --color-sage: oklch(35% 0.034 165);
-  --color-sage-2: oklch(29.5% 0.03 165);
-  --color-sage-rule: oklch(46% 0.035 160);
-  --color-focus: oklch(70% 0.16 55);
+  --color-gilt-dim: oklch(58% 0.07 68);
+  --color-sage: oklch(37% 0.034 158);         /* invitation forest */
+  --color-sage-2: oklch(31% 0.03 158);
+  --color-sage-rule: oklch(48% 0.035 156);
+  --color-focus: oklch(72% 0.15 62);
   --color-whatsapp: oklch(52% 0.13 155);
-  --color-shade: oklch(12% 0.012 40 / 0.62);
-  --color-shade-soft: oklch(12% 0.012 40 / 0.28);
+  --color-whatsapp-hi: oklch(47% 0.12 155);
   --color-nexlyr: oklch(74% 0.14 225);
   --color-nexlyr-ink: oklch(15% 0.02 240);
+  --color-nexlyr-bg: oklch(12.5% 0.012 250);
+  --color-nexlyr-rule: oklch(28% 0.03 240);
+  --color-nexlyr-muted: oklch(70% 0.02 240);
+  --color-nexlyr-text: oklch(94% 0.01 240);
+
+  /* glass */
+  --glass-dark: oklch(20% 0.05 18 / 0.46);
+  --glass-dark-strong: oklch(19% 0.05 18 / 0.78);
+  --glass-light: oklch(97% 0.012 76 / 0.58);
+  --glass-light-strong: oklch(97% 0.012 76 / 0.82);
+  --glass-edge-dark: oklch(94% 0.02 78 / 0.14);
+  --glass-edge-light: oklch(100% 0.005 76 / 0.7);
+  --glass-shine: linear-gradient(160deg, oklch(100% 0 0 / 0.16), oklch(100% 0 0 / 0) 42%);
+  --glass-blur: blur(18px) saturate(150%);
+  --shade: oklch(10% 0.03 18 / 0.6);
 
   /* type */
-  --font-display: "Bodoni Moda", "Bodoni Fallback", Georgia, serif;
-  --font-body: "Geist", "Geist Fallback", ui-sans-serif, sans-serif;
-  --font-outlier: "Geist Mono", ui-monospace, "SFMono-Regular", monospace;
+  --font-display: "Cormorant Garamond", "Cormorant Fallback", Georgia, serif;
+  --font-body: "Jost", "Jost Fallback", ui-sans-serif, sans-serif;
+  --font-outlier: "Allura", "Snell Roundhand", cursive;
 
-  /* perfect-fourth scale, fluid at the top end */
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-md: 1.125rem;
-  --text-lg: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
-  --text-xl: clamp(1.6rem, 1.3rem + 1vw, 2.1rem);
-  --text-2xl: clamp(2rem, 1.5rem + 1.9vw, 3.2rem);
-  --text-3xl: clamp(2.5rem, 1.7rem + 3.2vw, 4.6rem);
-  --text-display: clamp(2.9rem, 1.6rem + 5.6vw, 7rem);
+  --text-base: 1.0625rem;
+  --text-md: 1.15rem;
+  --text-lg: clamp(1.2rem, 1.08rem + 0.45vw, 1.42rem);
+  --text-xl: clamp(1.75rem, 1.4rem + 1.1vw, 2.3rem);
+  --text-2xl: clamp(2.2rem, 1.6rem + 2.1vw, 3.5rem);
+  --text-3xl: clamp(2.7rem, 1.8rem + 3.5vw, 5.1rem);
+  --text-display: clamp(3.2rem, 1.8rem + 6vw, 7.8rem);
+  --text-script: clamp(3rem, 1.6rem + 5.4vw, 7rem);
 
   /* 4pt spacing */
   --space-3xs: 0.25rem;
@@ -91,24 +101,23 @@
   --space-lg: 2rem;
   --space-xl: 3rem;
   --space-2xl: 4.5rem;
-  --space-3xl: clamp(4.5rem, 3rem + 6vw, 9rem);
-  --gutter: clamp(1rem, 0.6rem + 2.2vw, 2.5rem);
+  --space-3xl: clamp(4.5rem, 3rem + 6vw, 9.5rem);
+  --gutter: clamp(1rem, 0.6rem + 2.2vw, 2.75rem);
   --measure: 62ch;
-  --page-max: 84rem;
+  --page-max: 86rem;
 
-  /* shape + rule */
-  --radius-sm: 6px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 26px;
+  --radius-xl: 34px;
   --radius-pill: 999px;
   --rule: 1px solid var(--color-rule);
   --rule-night: 1px solid var(--color-night-rule);
 
-  /* motion */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in: cubic-bezier(0.55, 0, 1, 0.45);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --dur-fast: 160ms;
-  --dur-base: 280ms;
-  --dur-slow: 720ms;
+  --dur-base: 300ms;
+  --dur-slow: 760ms;
 }

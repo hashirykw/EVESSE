@@ -10,26 +10,39 @@
   let data = {};
   try { data = JSON.parse($('#ev-data')?.textContent || '{}'); } catch (e) {}
 
-  /* ── preloader: ≤ 1 s, once per session ── */
+  /* ── preloader: once per session, ≤ ~1.6 s, lens opens onto the page ── */
   const pre = $('.preloader');
   if (pre && !doc.classList.contains('seen')) {
-    const line = $('.preloader__line', pre);
-    let p = 0;
-    const tick = setInterval(() => { p = Math.min(0.9, p + 0.18); line.style.setProperty('--p', p); }, 110);
+    const pct = $('.pl__pct', pre);
+    doc.style.overflow = 'hidden';
+    let p = 0, shown = 0, finished = false;
+    const paint = () => {
+      shown += (p - shown) * 0.16;
+      pre.style.setProperty('--p', shown.toFixed(4));
+      if (pct) pct.textContent = String(Math.min(100, Math.round(shown * 100))).padStart(2, '0');
+      if (!(finished && shown > 0.998)) requestAnimationFrame(paint);
+    };
+    requestAnimationFrame(paint);
+    const tick = setInterval(() => { p = Math.min(0.9, p + 0.075 + Math.random() * 0.05); }, 90);
     const done = () => {
-      clearInterval(tick); line.style.setProperty('--p', 1);
-      setTimeout(() => { pre.classList.add('is-done'); try { sessionStorage.setItem('ev-seen', '1'); } catch (e) {} }, 160);
+      if (finished) return; finished = true;
+      clearInterval(tick); p = 1;
+      setTimeout(() => {
+        pre.classList.add('is-done'); doc.style.overflow = '';
+        try { sessionStorage.setItem('ev-seen', '1'); } catch (e) {}
+        setTimeout(() => pre.remove(), 1300);
+      }, reduce ? 0 : 380);
     };
     const start = performance.now();
-    const ready = () => setTimeout(done, Math.max(0, 650 - (performance.now() - start)));
+    const ready = () => setTimeout(done, Math.max(0, (reduce ? 200 : 1150) - (performance.now() - start)));
     if (document.readyState === 'complete') ready(); else addEventListener('load', ready, { once: true });
-    setTimeout(done, 1100); // hard cap
+    setTimeout(done, 2000); // hard cap on slow networks
   }
 
   /* ── smooth scroll (desktop pointers only) ── */
   let lenis = null;
   if (window.Lenis && fine && !reduce) {
-    lenis = new Lenis({ duration: 1.05, easing: t => 1 - Math.pow(1 - t, 3.2), smoothWheel: true });
+    lenis = new Lenis({ lerp: 0.085, wheelMultiplier: 0.95, smoothWheel: true, anchors: false });
     const raf = t => { lenis.raf(t); requestAnimationFrame(raf); };
     requestAnimationFrame(raf);
     window.__lenis = lenis;
@@ -48,7 +61,16 @@
   const nav = $('#nav');
   const menuBtn = $('.nav__menu');
   const panel = $('#nav-panel');
-  const onScroll = () => nav && nav.classList.toggle('is-scrolled', scrollY > 40);
+  const prog = $('.nav__progress');
+  let sTick = false;
+  const onScroll = () => {
+    if (sTick) return; sTick = true;
+    requestAnimationFrame(() => {
+      sTick = false;
+      nav && nav.classList.toggle('is-scrolled', scrollY > 40);
+      if (prog) { const max = document.documentElement.scrollHeight - innerHeight; prog.style.setProperty('--sp', max > 0 ? Math.min(1, scrollY / max).toFixed(4) : 0); }
+    });
+  };
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
   function closePanel() { if (!panel) return; panel.classList.remove('is-open'); menuBtn?.setAttribute('aria-expanded', 'false'); menuBtn?.setAttribute('aria-label', 'Open menu'); }
   menuBtn?.addEventListener('click', e => {
@@ -188,12 +210,47 @@
   if (chips) chips.innerHTML = QA.map((x, i) => `<button type="button" data-i="${i}">${x.q}</button>`).join('');
   chips?.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; const x = QA[+b.dataset.i]; add(x.q, 'me'); reply(x.a); });
   function openChat() {
-    chat.classList.add('is-open'); fab.setAttribute('aria-expanded', 'true'); closePanel();
+    chat.classList.add('is-open'); fab?.setAttribute('aria-expanded', 'true'); $$('.dock__icon[data-open-chat]').forEach(b => b.setAttribute('aria-expanded', 'true')); closePanel();
     if (!greeted) { greeted = true; add('Hello — this is Evessé’s quick-answer desk. Pick a question below, or book straight on WhatsApp.'); }
     setTimeout(() => $('button', chips)?.focus({ preventScroll: true }), 50);
   }
-  function closeChat() { if (!chat) return; chat.classList.remove('is-open'); fab?.setAttribute('aria-expanded', 'false'); }
+  function closeChat() { if (!chat) return; chat.classList.remove('is-open'); fab?.setAttribute('aria-expanded', 'false'); $$('.dock__icon[data-open-chat]').forEach(b => b.setAttribute('aria-expanded', 'false')); }
   fab?.addEventListener('click', () => chat.classList.contains('is-open') ? closeChat() : openChat());
-  $('.chat__close', chat || document)?.addEventListener('click', () => { closeChat(); fab.focus(); });
-  $$('[data-open-chat]').forEach(b => b.addEventListener('click', e => { e.preventDefault(); openChat(); }));
+  $('.chat__close', chat || document)?.addEventListener('click', () => { closeChat(); (fab && fab.offsetParent ? fab : $('.dock__icon[data-open-chat]'))?.focus(); });
+  $$('[data-open-chat]').forEach(b => b.addEventListener('click', e => {
+    e.preventDefault();
+    if (b.classList.contains('dock__icon') && chat.classList.contains('is-open')) { closeChat(); return; }
+    openChat();
+  }));
+
+  /* ── booking builder → WhatsApp ── */
+  const bk = $('#booker');
+  bk?.addEventListener('submit', e => {
+    e.preventDefault();
+    const f = new FormData(bk);
+    const branch = f.get('branch') || 'dha';
+    const concerns = f.getAll('concern');
+    const when = f.get('when');
+    const name = (f.get('name') || '').toString().trim();
+    const clinic = branch === 'dha' ? 'DHA Phase 6' : 'North Nazimabad';
+    const msg = [`Hello Evessé${name ? `, this is ${name}` : ''}.`, `I'd like to book a consultation at the ${clinic} clinic.`,
+      concerns.length ? `I'd like help with: ${concerns.join(', ')}.` : '', when ? `Preferred time: ${when}.` : ''].filter(Boolean).join('\n');
+    window.open(wa(branch, msg), '_blank', 'noopener');
+  });
+
+  /* ── tuck the chat button away when the footer credit is on screen ── */
+  const nx = $('.nexlyr');
+  if (nx && fab) new IntersectionObserver(es => fab.classList.toggle('is-tucked', es[0].isIntersecting && !chat.classList.contains('is-open'))).observe(nx);
+
+  /* ── mobile glass dock: appears after the first screen ── */
+  const dockEl = $('.dock');
+  if (dockEl) {
+    const first = $('.hero, .page-hero');
+    const toggleDock = () => {
+      const past = first ? first.getBoundingClientRect().bottom < innerHeight * 0.35 : scrollY > 300;
+      const footer = $('.footer'); const nearEnd = footer ? footer.getBoundingClientRect().top < innerHeight - 40 : false;
+      dockEl.classList.toggle('is-on', past && !nearEnd);
+    };
+    addEventListener('scroll', toggleDock, { passive: true }); toggleDock();
+  }
 })();

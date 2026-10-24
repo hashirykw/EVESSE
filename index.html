@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Evessé by Dr. Faria — Skin & Aesthetic Clinic, Karachi</title>
 <meta name="description" content="Dermatology-led skin, hair and aesthetic care by Dr. Faria Khan, Consultant Dermatologist. Clinics in DHA Phase 6 and North Nazimabad, Karachi.">
-<meta name="theme-color" content="#1c1512">
+<meta name="theme-color" content="#2a0c10">
 <link rel="canonical" href="https://evesse.nexlyr.solutions/">
 <link rel="icon" href="assets/img/monogram.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -25,8 +25,9 @@
 <meta name="twitter:title" content="Evessé by Dr. Faria — Skin & Aesthetic Clinic, Karachi">
 <meta name="twitter:description" content="Dermatology-led skin, hair and aesthetic care by Dr. Faria Khan, Consultant Dermatologist. Clinics in DHA Phase 6 and North Nazimabad, Karachi.">
 <meta name="twitter:image" content="https://evesse.nexlyr.solutions/assets/img/og-image.jpg">
-<link rel="preload" href="assets/fonts/bodoni-moda.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/cormorant-garamond.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/jost.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/allura.woff2" as="font" type="font/woff2" crossorigin>
 <script type="importmap">{"imports":{"three":"./assets/vendor/three.module.min.js"}}</script>
 <link rel="modulepreload" href="assets/js/hero-lens.js">
 <link rel="preload" as="image" href="assets/img/skin-macro.webp" fetchpriority="high">
@@ -36,9 +37,21 @@
 </head>
 <body data-page="index.html">
 <a class="skip" href="#main">Skip to content</a>
-<div class="preloader" aria-hidden="true"><div class="preloader__inner"><span class="monogram"></span><span class="preloader__line"></span></div></div>
+<div class="preloader" aria-hidden="true">
+  <span class="pl__glow pl__glow--a"></span><span class="pl__glow pl__glow--b"></span>
+  <div class="pl__stage">
+    <div class="pl__lens">
+      <svg class="pl__ring" viewBox="0 0 200 200"><circle class="pl__track" cx="100" cy="100" r="96"/><circle class="pl__prog" cx="100" cy="100" r="96" pathLength="1"/></svg>
+      <span class="pl__mono"></span>
+    </div>
+    <span class="pl__word"></span>
+    <span class="pl__sub">Skin &amp; Aesthetic Clinic</span>
+  </div>
+  <div class="pl__foot"><span class="pl__tag">Dermatology first.</span><span class="pl__count"><b class="pl__pct">00</b></span></div>
+</div>
 <header class="nav" id="nav">
   <div class="nav__bar">
+    <span class="nav__progress" aria-hidden="true"></span>
     <a class="wordmark" href="index.html" aria-label="Evessé by Dr. Faria — home"><span class="wordmark__script"></span><span class="wordmark__sub">by Dr. Faria</span></a>
     <nav aria-label="Primary"><ul class="nav__links"><li><a href="treatments.html">Treatments</a></li><li><a href="about.html">Dr. Faria</a></li><li><a href="index.html#layers">Skin science</a></li><li><a href="clinics.html">Clinics</a></li></ul></nav>
     <div class="nav__actions">
@@ -61,26 +74,43 @@
     <canvas class="hero__canvas" aria-hidden="true"></canvas>
     <div class="lens" aria-hidden="true"><div class="lens__ring"></div><div class="lens__tag"><span class="lens__term">Stratum corneum</span><span class="lens__def">The outer 15–20 layers of flattened cells — your moisture barrier.</span></div></div>
     <div class="wrap hero__content">
-      <p class="hero__cred"><span>Dr. Faria Khan</span><span class="dot"></span><span>Consultant Dermatologist &amp; Aesthetic Physician</span><span class="dot"></span><span>Karachi</span></p>
-      <div class="hero__readout" aria-hidden="true"><span class="lens__term">Stratum corneum</span><span class="lens__def">The outer 15–20 layers of flattened cells — your moisture barrier.</span></div>
-      <h1 id="hero-title">Dermatology first. <span class="gilt">Beauty follows.</span></h1>
+      <p class="hero__cred glass"><span class="avatar"><img src="assets/img/dr-reception-sm.webp" alt="" width="32" height="32"></span><span>Dr. Faria Khan</span><span class="dot"></span><span>Consultant Dermatologist &amp; Aesthetic Physician</span></p>
+      <div class="hero__readout glass" aria-hidden="true"><span class="lens__term">Stratum corneum</span><span class="lens__def">The outer 15–20 layers of flattened cells — your moisture barrier.</span></div>
+      <h1 id="hero-title"><span>Dermatology first.</span> <span class="script">Beauty follows</span></h1>
       <p class="lede">Evessé is a skin, hair and aesthetic clinic where every plan starts with a diagnosis — not a menu. Two clinics in Karachi, one standard of care.</p>
-      <div class="hero__ctas"><a class="btn btn--gilt" href="clinics.html#book">Book a consultation</a><a class="btn btn--ghost" href="treatments.html">Explore treatments</a></div>
-      <div class="hero__rail">
+      <div class="hero__ctas"><a class="btn btn--gilt" href="#book">Book a consultation</a><a class="btn btn--ghost" href="treatments.html">Explore treatments</a></div>
+      <div class="hero__rail glass">
         <a class="hero__new" href="clinics.html#north"><i>New</i> North Nazimabad clinic — doors opened 24 October 2026 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
         <span class="hero__hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M11 2v3M11 17v3M2 11h3M17 11h3M16 16l5 5"/></svg> Move across the skin — the lens names what it sees</span>
       </div>
     </div>
   </section>
 
+  <div class="marquee" aria-label="Treatments at Evessé"><div class="marquee__track"><div class="marquee__group"><span>Signature Rejuvenating Facial</span><i class="monogram" aria-hidden="true"></i><span>Botulinum toxin</span><i class="monogram" aria-hidden="true"></i><span>Dermal fillers</span><i class="monogram" aria-hidden="true"></i><span>Non-surgical thread lift</span><i class="monogram" aria-hidden="true"></i><span>Microneedling</span><i class="monogram" aria-hidden="true"></i><span>Skin boosters</span><i class="monogram" aria-hidden="true"></i><span>PRP & QR678®</span><i class="monogram" aria-hidden="true"></i><span>Pigmentation care</span><i class="monogram" aria-hidden="true"></i><span>Bridal skin</span><i class="monogram" aria-hidden="true"></i><span>Body composition</span><i class="monogram" aria-hidden="true"></i></div><div class="marquee__group" aria-hidden="true"><span>Signature Rejuvenating Facial</span><i class="monogram" aria-hidden="true"></i><span>Botulinum toxin</span><i class="monogram" aria-hidden="true"></i><span>Dermal fillers</span><i class="monogram" aria-hidden="true"></i><span>Non-surgical thread lift</span><i class="monogram" aria-hidden="true"></i><span>Microneedling</span><i class="monogram" aria-hidden="true"></i><span>Skin boosters</span><i class="monogram" aria-hidden="true"></i><span>PRP & QR678®</span><i class="monogram" aria-hidden="true"></i><span>Pigmentation care</span><i class="monogram" aria-hidden="true"></i><span>Bridal skin</span><i class="monogram" aria-hidden="true"></i><span>Body composition</span><i class="monogram" aria-hidden="true"></i></div></div></div>
+
+  <section class="press" aria-label="In conversation with">
+    <div class="wrap">
+      <p class="label">In conversation with</p>
+      <ul>
+        <li>ARY Digital<small>Good Morning Pakistan</small></li>
+        <li>Aaj News</li>
+        <li>Brandsynario<small>Feature</small></li>
+        <li>Dubai Derma<small>2026</small></li>
+        <li>ATCO Life Sciences<small>Pinktober</small></li>
+      </ul>
+    </div>
+  </section>
+
   <section class="section" aria-labelledby="clinic-title">
     <div class="wrap clinic">
-      <figure class="arch reveal" style="margin:0">
-        <video class="autoplay" muted loop playsinline preload="none" poster="assets/img/clinic-broll-poster.webp" data-src="assets/video/clinic-broll.mp4" aria-label="Inside an Evessé treatment room"></video>
-        <figcaption>Inside Evessé, DHA — treatment room</figcaption>
-      </figure>
+      <div class="arch-wrap">
+        <figure class="arch">
+          <video class="autoplay" muted loop playsinline preload="none" poster="assets/img/clinic-broll-poster.webp" data-src="assets/video/clinic-broll.mp4" aria-label="Inside an Evessé treatment room"></video>
+        </figure>
+        <div class="arch-badge glass-light"><strong>Two clinics</strong><span>DHA Phase 6 · North Nazimabad</span></div>
+      </div>
       <div class="clinic__text">
-        <h2 id="clinic-title">A clinic built around a dermatologist’s judgement.</h2>
+        <h2 id="clinic-title">Built around a dermatologist’s judgement. <span class="script">Knowledge first</span></h2>
         <p class="lede">Before building a beauty brand, Dr. Faria Khan set out to master skin. That order still runs the clinic: diagnosis first, treatment second, and nothing booked that your skin doesn’t need.</p>
         <ul class="values">
           <li><strong>Dermatology-led</strong><span>Every plan is set by a consultant dermatologist, not a sales desk.</span></li>
@@ -88,15 +118,29 @@
           <li><strong>Personal</strong><span>One face, one scalp, one body at a time — plans are written for you.</span></li>
           <li><strong>Premium</strong><span>Medical-grade devices in rooms designed to feel calm.</span></li>
         </ul>
-        <p class="pull">Knowledge first. Always.</p>
       </div>
     </div>
   </section>
 
-  <section class="section night" id="layers" aria-labelledby="layers-title">
+  <section class="section" style="padding-top:0" aria-labelledby="spot-title">
+    <div class="wrap">
+      <div class="spot reveal">
+        <img src="assets/img/room-bed.webp" srcset="assets/img/room-bed-sm.webp 720w, assets/img/room-bed.webp 1400w" sizes="100vw" alt="An Evessé treatment bed under warm light, beside a facial device" loading="lazy" decoding="async">
+        <div class="spot__card glass">
+          <p class="label gilt">Signature treatment</p>
+          <h2 id="spot-title">The Rejuvenating Facial <span class="script">by Evessé</span></h2>
+          <p class="lede">Our most-booked facial — a medical-grade glow that holds up in daylight. Ideal before an event, or as the first step of a longer plan.</p>
+          <ul class="spot__list"><li><b>Brightness</b>Instant, visible lift in tone</li><li><b>Hydration</b>Deep moisture, plump skin</li><li><b>Texture</b>Refined, smoother surface</li></ul>
+          <div class="hero__ctas"><a class="btn btn--gilt" href="#book">Book the facial</a><a class="btn btn--ghost" href="treatments.html#skin">All skin treatments</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section night grain" id="layers" aria-labelledby="layers-title">
     <div class="wrap">
       <div class="layers__head">
-        <h2 id="layers-title">Treatment, layer by layer.</h2>
+        <h2 id="layers-title">Treatment, layer by <span class="script">layer</span></h2>
         <p class="lede">Skin is three layers deep, and each treatment works at a different one. Turn the model, pick a layer, and see what Evessé uses there.</p>
       </div>
       <div class="layers">
@@ -104,7 +148,7 @@
           <div class="stage__loading">Preparing the skin model…</div>
           <span class="stage__hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg> Drag to turn · tap a label</span>
         </div>
-        <div class="layer-panel">
+        <div class="layer-panel glass">
           <div class="layer-tabs" role="tablist" aria-label="Skin layers"><button type="button" role="tab" id="lt-epidermis" aria-controls="layer-card" aria-selected="true" data-layer="epidermis">Epidermis</button><button type="button" role="tab" id="lt-dermis" aria-controls="layer-card" aria-selected="false" data-layer="dermis">Dermis</button><button type="button" role="tab" id="lt-follicle" aria-controls="layer-card" aria-selected="false" data-layer="follicle">Hair follicle</button><button type="button" role="tab" id="lt-hypodermis" aria-controls="layer-card" aria-selected="false" data-layer="hypodermis">Fat & muscle</button></div>
           <div class="layer-card" id="layer-card" role="tabpanel" aria-live="polite">
             <span class="layer-card__depth">01 · Surface · 0.05–1.5 mm</span>
@@ -118,13 +162,13 @@
     </div>
   </section>
 
-  <section class="section paper-2" aria-labelledby="tx-title">
+  <section class="section" aria-labelledby="tx-title">
     <div class="wrap">
       <div class="index-head">
-        <h2 id="tx-title">What we treat</h2>
+        <h2 id="tx-title">What we <span class="script">treat</span></h2>
         <p class="lede" style="max-width:36ch">Six areas of care. Each one begins with the same consultation.</p>
       </div>
-      <ul class="tx"><li class="tx__item"><a class="tx__link" href="treatments.html#skin" data-peek="glow-2"><span class="tx__name">Skin & facials</span><span class="tx__list">Signature Rejuvenating Facial · peels · pigmentation · acne & scars · glass-skin plans</span><span class="tx__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></li><li class="tx__item"><a class="tx__link" href="treatments.html#injectables" data-peek="lips-art"><span class="tx__name">Injectables</span><span class="tx__list">Botulinum toxin · dermal fillers · lip definition · Barbie tox</span><span class="tx__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></li><li class="tx__item"><a class="tx__link" href="treatments.html#lifting" data-peek="room-devices"><span class="tx__name">Lifting & collagen</span><span class="tx__list">Non-surgical thread lift · microneedling · skin boosters</span><span class="tx__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></li><li class="tx__item"><a class="tx__link" href="treatments.html#hair" data-peek="hair-exam"><span class="tx__name">Hair restoration</span><span class="tx__list">Bloodwork · PRP · QR678® · Dutexome · microneedling · laser hair removal</span><span class="tx__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></li><li class="tx__item"><a class="tx__link" href="treatments.html#body" data-peek="body"><span class="tx__name">Body & weight</span><span class="tx__list">Body composition analysis · contouring · medical weight management</span><span class="tx__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></li><li class="tx__item"><a class="tx__link" href="treatments.html#bridal" data-peek="bridal"><span class="tx__name">Bridal skin</span><span class="tx__list">A treatment timeline from six months out to the week of the wedding</span><span class="tx__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></li></ul>
+      <ul class="tx"><li class="tx__item"><a class="tx__link" href="treatments.html#skin" data-peek="glow-2"><span class="tx__thumb"><img src="assets/img/glow-2-sm.webp" alt="" loading="lazy" width="64" height="80"></span><span class="tx__name">Skin & facials</span><span class="tx__list">Signature Rejuvenating Facial · peels · pigmentation · acne & scars · glass-skin plans</span><span class="tx__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></li><li class="tx__item"><a class="tx__link" href="treatments.html#injectables" data-peek="lips-art"><span class="tx__thumb"><img src="assets/img/lips-art-sm.webp" alt="" loading="lazy" width="64" height="80"></span><span class="tx__name">Injectables</span><span class="tx__list">Botulinum toxin · dermal fillers · lip definition · Barbie tox</span><span class="tx__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></li><li class="tx__item"><a class="tx__link" href="treatments.html#lifting" data-peek="room-devices"><span class="tx__thumb"><img src="assets/img/room-devices-sm.webp" alt="" loading="lazy" width="64" height="80"></span><span class="tx__name">Lifting & collagen</span><span class="tx__list">Non-surgical thread lift · microneedling · skin boosters</span><span class="tx__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></li><li class="tx__item"><a class="tx__link" href="treatments.html#hair" data-peek="hair-exam"><span class="tx__thumb"><img src="assets/img/hair-exam-sm.webp" alt="" loading="lazy" width="64" height="80"></span><span class="tx__name">Hair restoration</span><span class="tx__list">Bloodwork · PRP · QR678® · Dutexome · microneedling · laser hair removal</span><span class="tx__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></li><li class="tx__item"><a class="tx__link" href="treatments.html#body" data-peek="body"><span class="tx__thumb"><img src="assets/img/body-sm.webp" alt="" loading="lazy" width="64" height="80"></span><span class="tx__name">Body & weight</span><span class="tx__list">Body composition analysis · contouring · medical weight management</span><span class="tx__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></li><li class="tx__item"><a class="tx__link" href="treatments.html#bridal" data-peek="bridal"><span class="tx__thumb"><img src="assets/img/bridal-sm.webp" alt="" loading="lazy" width="64" height="80"></span><span class="tx__name">Bridal skin</span><span class="tx__list">A treatment timeline from six months out to the week of the wedding</span><span class="tx__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></li></ul>
       <div class="tx-peek" aria-hidden="true"><img src="assets/img/glow-2-sm.webp" alt="" data-k="glow-2" loading="lazy"><img src="assets/img/lips-art-sm.webp" alt="" data-k="lips-art" loading="lazy"><img src="assets/img/room-devices-sm.webp" alt="" data-k="room-devices" loading="lazy"><img src="assets/img/hair-exam-sm.webp" alt="" data-k="hair-exam" loading="lazy"><img src="assets/img/body-sm.webp" alt="" data-k="body" loading="lazy"><img src="assets/img/bridal-sm.webp" alt="" data-k="bridal" loading="lazy"></div>
     </div>
   </section>
@@ -133,35 +177,35 @@
     <div class="wrap markers">
       <div>
         <div class="markers__head">
-          <h2 id="mk-title">Stop blaming the water. <span>Check these five markers.</span></h2>
-          <p class="lede" style="color:var(--color-cream-2)">Hair loss is often written in your bloodwork first. These are the levels Dr. Faria looks at before recommending PRP, QR678® or anything else.</p>
+          <h2 id="mk-title">Stop blaming the water. <span class="script">Check these five</span></h2>
+          <p class="lede">Hair loss is often written in your bloodwork first. These are the levels Dr. Faria looks at before recommending PRP, QR678® or anything else.</p>
         </div>
         <div class="mk-tabs" role="tablist" aria-label="Blood markers"><button type="button" role="tab" aria-selected="true" data-k="ferritin">Ferritin</button><button type="button" role="tab" aria-selected="false" data-k="vitd">Vitamin D</button><button type="button" role="tab" aria-selected="false" data-k="b12">Vitamin B12</button><button type="button" role="tab" aria-selected="false" data-k="zinc">Zinc</button><button type="button" role="tab" aria-selected="false" data-k="tsh">TSH</button></div>
         <div class="mk-card" id="mk-card" aria-live="polite">
           <h3 class="mk-name">Ferritin</h3>
           <div class="mk-scale" style="--low:28%;--hi:50%"><div class="mk-scale__track"></div><span class="mk-scale__tick mk-a" style="left:28%">17</span><span class="mk-scale__tick mk-b" style="left:50%">30</span></div>
           <div class="mk-pair">
-            <div><span class="mono">Low · <span class="mk-low">< 17 ng/mL</span></span><strong class="mk-lownote">Thinning hair and increased shedding</strong></div>
-            <div><span class="mono">Better · <span class="mk-good">> 30 ng/mL</span></span><strong class="mk-goodnote">Stronger hair growth</strong></div>
+            <div><span class="tag">Low · <span class="mk-low">< 17 ng/mL</span></span><strong class="mk-lownote">Thinning hair and increased shedding</strong></div>
+            <div><span class="tag">Better · <span class="mk-good">> 30 ng/mL</span></span><strong class="mk-goodnote">Stronger hair growth</strong></div>
           </div>
           <p class="mk-note">Reference ranges differ between labs. Your results are read with you at consultation — this is a guide, not a diagnosis.</p>
           <div><a class="btn btn--gilt" href="treatments.html#hair">Hair restoration at Evessé</a></div>
         </div>
       </div>
-      <figure class="mk-media reveal" style="margin:0">
+      <figure class="mk-media">
         <video class="autoplay" muted loop playsinline preload="none" poster="assets/img/hair-macro-poster.webp" data-src="assets/video/hair-macro.mp4" aria-label="Magnified hair shaft under heat"></video>
         <figcaption>What a flat iron does to a hair shaft — from Evessé’s hair series.</figcaption>
       </figure>
     </div>
   </section>
 
-  <section class="section night" aria-labelledby="dr-title">
+  <section class="section night grain" aria-labelledby="dr-title">
     <div class="wrap doctor">
-      <figure class="doctor__portrait reveal" style="margin:0"><img src="assets/img/dr-reception.webp" srcset="assets/img/dr-reception-sm.webp 720w, assets/img/dr-reception.webp 1400w" sizes="(max-width: 900px) 100vw, 42vw" alt="Dr. Faria Khan reviewing a patient file at the Evessé reception" loading="lazy" decoding="async"></figure>
+      <figure class="doctor__portrait"><div class="frame"><img src="assets/img/dr-reception.webp" srcset="assets/img/dr-reception-sm.webp 720w, assets/img/dr-reception.webp 1400w" sizes="(max-width: 900px) 100vw, 42vw" alt="Dr. Faria Khan reviewing a patient file at the Evessé reception" loading="lazy" decoding="async"></div><figcaption class="glass">Founder · Consultant Dermatologist</figcaption></figure>
       <div class="doctor__text">
-        <h2 id="dr-title">Dr. Faria Khan</h2>
-        <p class="doctor__title">Consultant Dermatologist &amp; Aesthetic Physician · Assistant Professor, Abbasi Shaheed Hospital / KMDC · Founder of Evessé</p>
-        <p class="lede">The doctor, the academic, the founder. She still teaches, still trains, and still sees patients herself — patients come for their skin and stay for her judgement, honesty and results.</p>
+        <h2 id="dr-title">Dr. Faria Khan <span class="script">the doctor, the academic, the founder</span></h2>
+        <p class="doctor__title">Consultant Dermatologist &amp; Aesthetic Physician · Assistant Professor, Abbasi Shaheed Hospital / KMDC</p>
+        <p class="lede">She still teaches, still trains, and still sees patients herself — patients come for their skin and stay for her judgement, honesty and results.</p>
         <ol class="timeline">
           <li><span class="when">Foundation</span><div><strong>MBBS</strong><span>Medicine first — a doctor before anything else.</span></div></li>
           <li><span class="when">Specialism</span><div><strong>Postgraduate qualification in Dermatology</strong><span>Specialised in skin before building a beauty brand.</span></div></li>
@@ -181,50 +225,70 @@
   <section class="section night-2" aria-labelledby="reels-title">
     <div class="wrap">
       <div class="reels-head">
-        <h2 id="reels-title">From the clinic floor</h2>
+        <h2 id="reels-title">From the clinic <span class="script">floor</span></h2>
         <a class="link-arrow gilt" href="https://www.instagram.com/evesse.clinic/" target="_blank" rel="noopener">More on Instagram <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
       </div>
-      <div class="reels" tabindex="0" aria-label="Clinic videos — scroll sideways"><article class="reel"><img src="assets/img/reel-v35.webp" alt="" loading="lazy"><video preload="none" playsinline data-src="assets/video/reel-v35.mp4" aria-label="A non-surgical skin lift, in twelve seconds"></video><button class="reel__btn" type="button" aria-label="Play: A non-surgical skin lift, in twelve seconds"><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg></span><span class="reel__title">A non-surgical skin lift, in twelve seconds</span></button></article><article class="reel"><img src="assets/img/reel-v39.webp" alt="" loading="lazy"><video preload="none" playsinline data-src="assets/video/reel-v39.mp4" aria-label="One concern at a time — how she plans treatment"></video><button class="reel__btn" type="button" aria-label="Play: One concern at a time — how she plans treatment"><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg></span><span class="reel__title">One concern at a time — how she plans treatment</span></button></article><article class="reel"><img src="assets/img/reel-v38.webp" alt="" loading="lazy"><video preload="none" playsinline data-src="assets/video/reel-v38.mp4" aria-label="Mid-consultation, between sessions"></video><button class="reel__btn" type="button" aria-label="Play: Mid-consultation, between sessions"><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg></span><span class="reel__title">Mid-consultation, between sessions</span></button></article><article class="reel"><img src="assets/img/reel-v33.webp" alt="" loading="lazy"><video preload="none" playsinline data-src="assets/video/reel-v33.mp4" aria-label="Barbie tox, explained by Dr. Faria"></video><button class="reel__btn" type="button" aria-label="Play: Barbie tox, explained by Dr. Faria"><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg></span><span class="reel__title">Barbie tox, explained by Dr. Faria</span></button></article><article class="reel"><img src="assets/img/reel-v22.webp" alt="" loading="lazy"><video preload="none" playsinline data-src="assets/video/reel-v22.mp4" aria-label="“Her husband thinks it’s genetics.”"></video><button class="reel__btn" type="button" aria-label="Play: “Her husband thinks it’s genetics.”"><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg></span><span class="reel__title">“Her husband thinks it’s genetics.”</span></button></article></div>
+      <div class="reels" tabindex="0" aria-label="Clinic videos — scroll sideways"><article class="reel"><img src="assets/img/reel-v35.webp" alt="" loading="lazy"><video preload="none" playsinline data-src="assets/video/reel-v35.mp4" aria-label="A non-surgical skin lift, in twelve seconds"></video><button class="reel__btn" type="button" aria-label="Play: A non-surgical skin lift, in twelve seconds"><span class="reel__meta"><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg></span><span class="reel__title">A non-surgical skin lift, in twelve seconds</span></span></button></article><article class="reel"><img src="assets/img/reel-v39.webp" alt="" loading="lazy"><video preload="none" playsinline data-src="assets/video/reel-v39.mp4" aria-label="One concern at a time — how she plans treatment"></video><button class="reel__btn" type="button" aria-label="Play: One concern at a time — how she plans treatment"><span class="reel__meta"><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg></span><span class="reel__title">One concern at a time — how she plans treatment</span></span></button></article><article class="reel"><img src="assets/img/reel-v38.webp" alt="" loading="lazy"><video preload="none" playsinline data-src="assets/video/reel-v38.mp4" aria-label="Mid-consultation, between sessions"></video><button class="reel__btn" type="button" aria-label="Play: Mid-consultation, between sessions"><span class="reel__meta"><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg></span><span class="reel__title">Mid-consultation, between sessions</span></span></button></article><article class="reel"><img src="assets/img/reel-v33.webp" alt="" loading="lazy"><video preload="none" playsinline data-src="assets/video/reel-v33.mp4" aria-label="Barbie tox, explained by Dr. Faria"></video><button class="reel__btn" type="button" aria-label="Play: Barbie tox, explained by Dr. Faria"><span class="reel__meta"><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg></span><span class="reel__title">Barbie tox, explained by Dr. Faria</span></span></button></article><article class="reel"><img src="assets/img/reel-v22.webp" alt="" loading="lazy"><video preload="none" playsinline data-src="assets/video/reel-v22.mp4" aria-label="“Her husband thinks it’s genetics.”"></video><button class="reel__btn" type="button" aria-label="Play: “Her husband thinks it’s genetics.”"><span class="reel__meta"><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg></span><span class="reel__title">“Her husband thinks it’s genetics.”</span></span></button></article></div>
     </div>
   </section>
 
-  <section class="section night" aria-label="Your face is your business card">
+  <section class="section" aria-label="Your face is your business card">
     <div class="wrap still">
       <div class="still__text">
-        <blockquote>Your face is your business card. <span>Invest in it.</span></blockquote>
+        <blockquote>Your face is your business card. <span class="script" style="color:var(--color-accent)">Invest in it</span></blockquote>
         <p class="lede">Start with a consultation. You leave with a diagnosis and a written plan — and you decide what happens next.</p>
-        <a class="btn btn--gilt" href="clinics.html#book">Book a consultation</a>
+        <a class="btn" href="#book">Book a consultation</a>
       </div>
-      <figure class="still__img reveal" style="margin:0"><img src="assets/img/business-card.webp" srcset="assets/img/business-card-sm.webp 720w, assets/img/business-card.webp 1400w" sizes="(max-width: 900px) 100vw, 40vw" alt="A gloved hand holding an Evessé card that reads: Your face is your business card. Invest in it." loading="lazy" decoding="async"></figure>
+      <figure class="still__img reveal"><img src="assets/img/business-card.webp" srcset="assets/img/business-card-sm.webp 720w, assets/img/business-card.webp 1400w" sizes="(max-width: 900px) 100vw, 40vw" alt="A gloved hand holding an Evessé card that reads: Your face is your business card. Invest in it." loading="lazy" decoding="async"></figure>
     </div>
   </section>
 
-  <section class="section" id="book" aria-labelledby="book-title">
+  <section class="section book-sec" id="book" aria-labelledby="book-title">
+  <img class="book-sec__bg" src="assets/img/branch-door.webp" srcset="assets/img/branch-door-sm.webp 720w, assets/img/branch-door.webp 1400w" sizes="100vw" alt="" loading="lazy">
+  <div class="wrap book-grid">
+    <div>
+      <h2 id="book-title">Book in three taps. <span class="script">See you soon</span></h2>
+      <p class="lede">Choose a clinic and what you’d like help with — WhatsApp opens with your message ready to send. The front desk confirms your consultation slot.</p>
+    </div>
+    <form class="booker glass" id="booker" novalidate>
+      <fieldset><legend>1 · Clinic</legend>
+        <div class="seg"><label><input type="radio" name="branch" value="dha" checked><span>DHA Phase 6</span></label><label><input type="radio" name="branch" value="north"><span>North Nazimabad</span></label></div>
+      </fieldset>
+      <fieldset><legend>2 · What would you like help with?</legend><div class="chips"><label><input type="checkbox" name="concern" value="Skin & glow" checked><span>Skin & glow</span></label><label><input type="checkbox" name="concern" value="Acne & scars"><span>Acne & scars</span></label><label><input type="checkbox" name="concern" value="Pigmentation"><span>Pigmentation</span></label><label><input type="checkbox" name="concern" value="Botox & fillers"><span>Botox & fillers</span></label><label><input type="checkbox" name="concern" value="Thread lift"><span>Thread lift</span></label><label><input type="checkbox" name="concern" value="Hair fall"><span>Hair fall</span></label><label><input type="checkbox" name="concern" value="Weight & body"><span>Weight & body</span></label><label><input type="checkbox" name="concern" value="Bridal plan"><span>Bridal plan</span></label></div></fieldset>
+      <fieldset><legend>3 · When suits you?</legend><div class="chips"><label><input type="radio" name="when" value="Today"><span>Today</span></label><label><input type="radio" name="when" value="This week" checked><span>This week</span></label><label><input type="radio" name="when" value="Next week"><span>Next week</span></label><label><input type="radio" name="when" value="Flexible"><span>Flexible</span></label></div></fieldset>
+      <div class="field"><label class="sr-only" for="bk-name">Your name (optional)</label><input id="bk-name" name="name" type="text" autocomplete="name" placeholder="Your name (optional)"></div>
+      <div class="booker__go"><button class="btn btn--gilt" type="submit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.1-1.3A9.9 9.9 0 1 0 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3 .8.8-2.95-.2-.31a8.2 8.2 0 1 1 6.9 3.79Zm4.5-6.1c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.04-.38-1.98-1.22a7.4 7.4 0 0 1-1.37-1.7c-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.41-.56-.42h-.47a.9.9 0 0 0-.66.31 2.76 2.76 0 0 0-.86 2.06c0 1.21.88 2.38 1 2.55.13.16 1.74 2.65 4.2 3.72.59.25 1.05.4 1.4.52.6.19 1.14.16 1.57.1.48-.07 1.46-.6 1.67-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.17-.47-.29Z"/></svg> Send on WhatsApp</button><p class="booker__note">Nothing is booked until the front desk confirms with you.</p></div>
+    </form>
+  </div>
+</section>
+
+
+  <section class="section paper-2" aria-labelledby="clinics-title">
     <div class="wrap">
       <div class="clinics-head">
-        <h2 id="book-title">Two clinics. One standard.</h2>
-        <p class="lede">Message the clinic nearest to you — the front desk confirms your slot on WhatsApp.</p>
+        <h2 id="clinics-title">Two clinics. <span class="script">One standard</span></h2>
+        <p class="lede">Prefer to call, or need directions? Both front desks are a tap away.</p>
       </div>
       <div class="branches"><article class="branch" id="dha">
   <div class="branch__img"><img src="assets/img/room-space.webp" srcset="assets/img/room-space-sm.webp 720w, assets/img/room-space.webp 1400w" sizes="(max-width: 900px) 100vw, 45vw" alt="A quiet treatment room at the DHA clinic" loading="lazy" decoding="async"><span class="branch__badge">Flagship</span></div>
-  <div class="branch__body">
+  <div class="branch__body glass">
     <h3>DHA Phase 6</h3>
     <address>Building 38C, 1st Floor, Lane 11, Main Bukhari Commercial Area, Phase 6 DHA, Karachi</address>
     <div class="branch__phones"><a href="tel:+923001172177">0300-1172177</a><a href="tel:+923343111177">0334-3111177</a><a href="tel:+922136270726">021-36270726</a></div>
     <div class="branch__ctas">
       <a class="btn btn--wa" href="https://wa.me/923001172177?text=Hello%20Evess%C3%A9%2C%20I%27d%20like%20to%20book%20a%20consultation%20at%20the%20DHA%20Phase%206%20clinic." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.1-1.3A9.9 9.9 0 1 0 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3 .8.8-2.95-.2-.31a8.2 8.2 0 1 1 6.9 3.79Zm4.5-6.1c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.04-.38-1.98-1.22a7.4 7.4 0 0 1-1.37-1.7c-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.41-.56-.42h-.47a.9.9 0 0 0-.66.31 2.76 2.76 0 0 0-.86 2.06c0 1.21.88 2.38 1 2.55.13.16 1.74 2.65 4.2 3.72.59.25 1.05.4 1.4.52.6.19 1.14.16 1.57.1.48-.07 1.46-.6 1.67-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.17-.47-.29Z"/></svg> Book on WhatsApp</a>
-      <a class="btn btn--ghost on-light" href="https://www.google.com/maps/search/?api=1&query=Evesse+Aesthetic+Clinic+Bukhari+Commercial+Phase+6+DHA+Karachi" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg> Directions</a>
+      <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&query=Evesse+Aesthetic+Clinic+Bukhari+Commercial+Phase+6+DHA+Karachi" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg> Directions</a>
     </div>
   </div>
 </article><article class="branch" id="north">
   <div class="branch__img"><img src="assets/img/branch-door.webp" srcset="assets/img/branch-door-sm.webp 720w, assets/img/branch-door.webp 1400w" sizes="(max-width: 900px) 100vw, 45vw" alt="The lit stone entrance of the new North Nazimabad clinic" loading="lazy" decoding="async"><span class="branch__badge">New · opened 24 Oct</span></div>
-  <div class="branch__body">
+  <div class="branch__body glass">
     <h3>North Nazimabad</h3>
     <address>B-122, 2nd Floor, Block H, Main Food Street, beside Karachi Broast, Main Five Star Roundabout, North Nazimabad, Karachi</address>
     <div class="branch__phones"><a href="tel:+923335974283">0333-5974283</a><a href="tel:+922136629770">021-36629770</a></div>
     <div class="branch__ctas">
       <a class="btn btn--wa" href="https://wa.me/923335974283?text=Hello%20Evess%C3%A9%2C%20I%27d%20like%20to%20book%20a%20consultation%20at%20the%20North%20Nazimabad%20clinic." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.1-1.3A9.9 9.9 0 1 0 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3 .8.8-2.95-.2-.31a8.2 8.2 0 1 1 6.9 3.79Zm4.5-6.1c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.04-.38-1.98-1.22a7.4 7.4 0 0 1-1.37-1.7c-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.41-.56-.42h-.47a.9.9 0 0 0-.66.31 2.76 2.76 0 0 0-.86 2.06c0 1.21.88 2.38 1 2.55.13.16 1.74 2.65 4.2 3.72.59.25 1.05.4 1.4.52.6.19 1.14.16 1.57.1.48-.07 1.46-.6 1.67-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.17-.47-.29Z"/></svg> Book on WhatsApp</a>
-      <a class="btn btn--ghost on-light" href="https://www.google.com/maps/search/?api=1&query=Evesse+Aesthetic+Clinic+Block+H+North+Nazimabad+Karachi" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg> Directions</a>
+      <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&query=Evesse+Aesthetic+Clinic+Block+H+North+Nazimabad+Karachi" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg> Directions</a>
     </div>
   </div>
 </article></div>
@@ -252,6 +316,11 @@
     </div>
   </div>
 </footer>
+<nav class="dock" aria-label="Quick actions">
+  <a class="btn btn--gilt" href="clinics.html#book">Book a consultation</a>
+  <a class="dock__icon" href="tel:+923001172177" aria-label="Call the DHA clinic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></a>
+  <button class="dock__icon" type="button" data-open-chat aria-expanded="false" aria-controls="chat" aria-label="Ask Evessé"><span class="monogram"></span></button>
+</nav>
 <button class="chat-fab" type="button" aria-expanded="false" aria-controls="chat"><span class="chat-fab__mono"><span class="monogram"></span></span><span class="chat-fab__label">Ask Evessé</span></button>
 <section class="chat" id="chat" role="dialog" aria-label="Ask Evessé" aria-modal="false">
   <div class="chat__head"><span class="chat-fab__mono"><span class="monogram"></span></span><div><strong>Ask Evessé</strong><small>Quick answers · a person replies on WhatsApp</small></div><button class="chat__close" type="button" aria-label="Close chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
