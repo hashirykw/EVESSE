@@ -644,9 +644,26 @@ html { scrollbar-color: var(--color-gilt-dim) var(--color-night); scrollbar-widt
   .mk-pair { grid-template-columns: minmax(0, 1fr); }
   .index-head { grid-template-columns: minmax(0, 1fr); }
   .reels { grid-auto-columns: 66%; }
-  .footer__cols { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-lg); }
-  .footer { padding-bottom: 104px; }
-  .nexlyr { padding: 0.7rem; }
+  /* compact footer on phones (~30% of the desktop stack) */
+  .footer { padding-top: 1.6rem; padding-bottom: 0.9rem; }
+  .footer__mast { gap: 0.9rem; padding-bottom: 0.9rem; }
+  .footer__mast > div { gap: 0 !important; }
+  .footer__mast > div > p { display: none; }
+  .footer .wordmark { --wm: 116px; }
+  .footer__cols { display: flex; flex-wrap: wrap; gap: 0.3rem 0; }
+  .footer__cols > div { display: contents; }
+  .footer__cols h4 { display: none; }
+  .footer__cols ul { display: contents; }
+  .footer__cols li { display: inline-flex; align-items: center; }
+  .footer__cols li::after { content: ""; flex: none; width: 3px; height: 3px; border-radius: 50%; background: var(--color-gilt-dim); margin: 0 0.65rem; }
+  .footer__cols > div:nth-child(-n+2) li:nth-child(3) { display: none; }
+  .footer__cols > div:last-child li:last-child { display: none; }
+  .footer__cols > div:last-child li:nth-child(2)::after { display: none; }
+  .footer__cols a { font-size: 0.8rem; letter-spacing: 0.02em; }
+  .footer__base { padding-block: 0.7rem; font-size: 0.68rem; }
+  .footer__base span:last-child { display: none; }
+  .nexlyr { margin-bottom: 0; padding: 0.5rem 0.5rem 0.5rem 0.7rem; }
+  .nexlyr__btn { min-height: 34px; padding: 0.35rem 0.85rem; font-size: 0.78rem; }
   .nexlyr__id small { display: none; }
   .chat-fab { display: none; }
   .chat { right: 12px; left: 12px; width: auto; bottom: 88px; height: min(500px, calc(100svh - 170px)); }
