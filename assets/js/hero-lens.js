@@ -101,12 +101,12 @@ export function init(hero) {
 
   let W = 0, H = 0, dpr = 1, R = 120, mobile = false;
   const size = () => {
-    mobile = innerWidth < 640;
+    mobile = innerWidth < 900;
     dpr = Math.min(devicePixelRatio || 1, mobile ? 1.5 : 1.6);
     const r = hero.getBoundingClientRect(); W = r.width; H = r.height;
     canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
     gl.viewport(0, 0, canvas.width, canvas.height);
-    R = mobile ? Math.min(78, W * 0.19) : Math.min(150, Math.max(110, W * 0.085));
+    R = mobile ? (innerWidth < 640 ? Math.min(78, W * 0.19) : 92) : Math.min(150, Math.max(110, W * 0.085));
     if (mobile && ro) contentTop = ro.getBoundingClientRect().top - r.top;
     lens.style.setProperty('--r', R + 'px');
   };
@@ -115,7 +115,9 @@ export function init(hero) {
   let tx = 0, ty = 0, x = 0, y = 0, lastMove = -1e9, inten = 0, tIn = 1;
   let contentTop = H * 0.5;
   const bounds = () => mobile
-    ? { x0: R + 6, x1: W - R - 6, y0: 74 + R, y1: Math.max(74 + R, contentTop - R - 10) }
+    ? (W >= 640
+      ? { x0: Math.max(W * 0.62, 430 + R), x1: W - R - 14, y0: 96 + R, y1: H - R - 170 }
+      : { x0: R + 6, x1: W - R - 6, y0: 74 + R, y1: Math.max(74 + R, contentTop - R - 10) })
     : { x0: W * 0.58, x1: W - R * 0.8, y0: R + 90, y1: H - R - 120 };
   const clampT = () => { const b = bounds(); tx = Math.min(b.x1, Math.max(b.x0, tx)); ty = Math.min(b.y1, Math.max(b.y0, ty)); };
   const onMove = e => {
@@ -144,23 +146,24 @@ export function init(hero) {
   };
   const focal = () => mobile ? [0.62, 0.42] : [0.5, 0.42];
 
-  let visible = true, raf = 0, t0 = performance.now();
+  let visible = true, raf = 0, lastT = 0, t0 = performance.now();
   new IntersectionObserver(es => { visible = es[0].isIntersecting; if (visible && !raf) raf = requestAnimationFrame(frame); }).observe(hero);
   document.addEventListener('visibilitychange', () => { if (!document.hidden && visible && !raf) raf = requestAnimationFrame(frame); });
 
   function frame(now) {
     raf = 0;
-    if (!visible || document.hidden) return;
+    if (!visible || document.hidden) { lastT = 0; return; }
     const t = (now - t0) / 1000;
+    const dt = lastT ? Math.min(0.25, (now - lastT) / 1000) : 1 / 60; lastT = now;
     if (now - lastMove > 2600) {
       const b = bounds();
       const cx = (b.x0 + b.x1) / 2, cy = (b.y0 + b.y1) / 2, ax = (b.x1 - b.x0) / 2, ay = (b.y1 - b.y0) / 2;
       const s = reduce ? 0 : t * 0.16;
       tx = cx + Math.sin(s * 1.0 + 0.6) * ax * 0.92; ty = cy + Math.sin(s * 1.7) * ay * 0.85;
     }
-    const k = reduce ? 1 : 0.11;
+    const k = reduce ? 1 : 1 - Math.pow(1 - 0.11, dt * 60);
     x += (tx - x) * k; y += (ty - y) * k;
-    inten += (tIn - inten) * 0.06;
+    inten += (tIn - inten) * (1 - Math.pow(0.94, dt * 60));
     lens.style.transform = `translate3d(${x}px, ${y}px, 0)`;
     setZone();
     gl.uniform2f(u.res, canvas.width, canvas.height);

@@ -74,7 +74,7 @@
       if (!v.src && v.dataset.src) { v.src = v.dataset.src; }
       if (!reduce) v.play().catch(() => {});
     } else v.pause();
-  }), { rootMargin: '0px 0px 120px 0px' });
+  }), { rootMargin: '0px' });
   $$('video.autoplay').forEach(v => { v.muted = true; vio.observe(v); });
 
   /* ── treatment index peek (desktop) ── */

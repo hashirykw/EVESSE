@@ -158,7 +158,7 @@ export function init(stage, layers) {
   };
   const spots = {};
   (layers || []).forEach(L => {
-    const b = document.createElement('button'); b.type = 'button'; b.className = 'hotspot'; b.innerHTML = `<b>${L.n}</b>${L.name}`;
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'hotspot'; b.innerHTML = `<b>${L.n}</b><span>${L.name}</span>`;
     b.setAttribute('aria-label', `Show ${L.name}`);
     b.addEventListener('click', e => { e.stopPropagation(); select(L.id, true); });
     stage.appendChild(b); spots[L.id] = b;
@@ -168,7 +168,7 @@ export function init(stage, layers) {
   let active = 'epidermis';
   const gilt = new THREE.Color(0xd9a95c);
   const offsets = { epidermis: 0, dermis: 0, follicle: 0, hypodermis: 0 };
-  const explode = { epidermis: 0.24, dermis: 0, follicle: 0, hypodermis: -0.24 };
+  const explode = { epidermis: 0.46, dermis: 0, follicle: 0, hypodermis: -0.4 };
   let exploded = 0;
   function select(id, emit) {
     active = id; exploded = 1;
@@ -210,37 +210,40 @@ export function init(stage, layers) {
     renderer.setSize(r.width, r.height, false);
     camera.aspect = r.width / r.height;
     const narrow = camera.aspect < 1.05;
-    camera.position.copy(camBase).multiplyScalar(narrow ? 1.18 : 1);
+    camera.position.copy(camBase).multiplyScalar(narrow ? 1.06 : 1);
     camera.lookAt(0, 0.12, 0);
     camera.updateProjectionMatrix();
   };
   resize();
   new ResizeObserver(resize).observe(stage);
 
-  let visible = false, raf = 0; const t0 = performance.now();
+  let visible = false, raf = 0, last = 0; const t0 = performance.now();
+  const ease = (rate, dt) => 1 - Math.pow(1 - rate, dt * 60); // frame-rate independent
+  const black = new THREE.Color(0x000000);
   new IntersectionObserver(es => { visible = es[0].isIntersecting; if (visible && !raf) raf = requestAnimationFrame(loop); }, { rootMargin: '100px' }).observe(stage);
   const v3 = new THREE.Vector3();
   function loop(now) {
-    raf = 0; if (!visible) return;
+    raf = 0; if (!visible) { last = 0; return; }
     const t = (now - t0) / 1000;
+    const dt = last ? Math.min(0.25, (now - last) / 1000) : 1 / 60; last = now;
     if (!dragging) {
-      vY *= 0.92; rotY += vY;
-      if (now - lastInput > 3500 && !reduce) rotY += (Math.sin(t * 0.25) * 0.42 - 0.12 - rotY) * 0.01;
-      rotX *= 0.97;
+      vY *= Math.pow(0.92, dt * 60); rotY += vY * dt * 60;
+      if (now - lastInput > 3500 && !reduce) rotY += (Math.sin(t * 0.25) * 0.42 - 0.12 - rotY) * ease(0.01, dt);
+      rotX *= Math.pow(0.97, dt * 60);
     }
     root.rotation.y = rotY; root.rotation.x = rotX;
     // exploded offsets ease in/out
     Object.keys(groups).forEach(k => {
       const target = explode[k] * exploded;
-      offsets[k] += (target - offsets[k]) * 0.08;
+      offsets[k] += (target - offsets[k]) * (reduce ? 1 : ease(0.09, dt));
       groups[k].position.y = k === 'follicle' ? offsets.dermis : offsets[k];
     });
     // glow on the active layer
     const pulse = reduce ? 0.6 : 0.5 + 0.5 * Math.sin(t * 2.6);
     mats.forEach(({ g, m }) => {
       const on = g === active && exploded > 0;
-      m.emissive.lerp(on ? gilt : new THREE.Color(0x000000), 0.12);
-      m.emissiveIntensity = on ? 0.12 + pulse * 0.12 : 0.0;
+      m.emissive.lerp(on ? gilt : black, ease(0.12, dt));
+      m.emissiveIntensity = on ? 0.16 + pulse * 0.14 : 0.0;
     });
     renderer.render(scene, camera);
     // hotspots

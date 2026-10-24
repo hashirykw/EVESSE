@@ -29,3 +29,21 @@
 - No text fade-in on load; preloader ≤ 1 s and once per session.
 - Mobile menu and chat open as compact cards, never full-screen.
 - Every image is WebP in `assets/img`, every video in `assets/video`, all libraries and fonts vendored locally.
+
+## Review log (desktop 1440 · tablet 768/1024 · mobile 390/320)
+
+| Round | Area | Score | Fix applied |
+|---|---|---|---|
+| 1 | Desktop hero | 6.5 | Wordmark traced inverted (box) → re-traced; lede contrast; hero rail clear of chat button |
+| 2 | Hero lens | 7 | Softer sharpening, real-scale pores, zoom 1.6× |
+| 3 | Mobile home | 6.5 | Headline broke mid-word; lens label moved into a readout above the headline; reels sizing |
+| 4–6 | Inner pages | 7 | Lede contrast on dark heroes; stray letters cropped out of two photos; wider treatment image column |
+| 7 | Menu + chat (mobile) | 9 | Both open as compact cards, never full screen |
+| 8 | Lens labels | 6 → 9 | Zones recalibrated to the photo (melanocytes on freckles, vermilion border on the lip line…) |
+| 9 | Performance | 9 | 4G: LCP ≈ 0.3–0.45 s, CLS 0, inner pages ≈ 250 KB; 3D library lazy-loaded |
+| 10 | Link preview | 8.5 | 1200×630 OG image; monogram re-traced (was a filled box) |
+| 11 | 3D layers | 7.5 → 9 | Stronger exploded view; time-based easing so slow phones animate fully; number-only labels on phones |
+| 12 | Tablet hero | 7 → 8.5 | Readout mode below 900 px; lens kept in the right column |
+| 13 | Interactions | 9 | Hover peek, reel playback, layer tabs — no console errors |
+| 14 | Mobile about/clinics | 8.5 | — |
+| 15 | Launch | — | vercel.json caching, sitemap, robots, 404, reels recompressed |

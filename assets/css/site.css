@@ -434,6 +434,11 @@ html.seen .preloader { display: none; }
   .mk-media { max-width: 520px; }
 }
 @media (max-width: 900px) {
+  .lens__tag { display: none; }
+  .hero__cred { display: none; }
+  .hero .lede, .hero__readout { max-width: 34ch; }
+  .hero__readout { display: grid; }
+  .hero::after { background: linear-gradient(0deg, oklch(13% 0.012 40 / 0.94) 0%, oklch(13% 0.012 40 / 0.72) 42%, oklch(13% 0.012 40 / 0.1) 72%); }
   .clinic, .doctor, .still, .page-hero__grid, .tx-block, .story { grid-template-columns: minmax(0, 1fr); }
   .clinic .arch { max-width: 360px; width: 100%; justify-self: center; }
   .doctor__portrait { position: relative; top: 0; max-width: 520px; }
@@ -466,9 +471,6 @@ html.seen .preloader { display: none; }
   .hero__ctas .btn { flex: 1 1 0; padding-inline: 0.6rem; font-size: 0.9rem; }
   .hero__rail { flex-direction: column; align-items: flex-start; gap: 0.6rem; padding-right: 64px; }
   .hero__hint { display: none; }
-  .lens__tag { display: none; }
-  .hero__cred { display: none; }
-  .hero__readout { display: grid; }
   .hero h1 { font-size: clamp(2.35rem, 1.2rem + 5.4vw, 2.9rem); }
   .hero .lede { font-size: 1rem; }
   .values li, .timeline li, .tx-rows li, .bridal-steps li { grid-template-columns: minmax(0, 1fr); gap: 0.2rem; }
@@ -482,6 +484,9 @@ html.seen .preloader { display: none; }
   .chat-fab { padding: 0.35rem; min-height: 0; }
   .chat { right: 12px; bottom: 76px; height: min(500px, calc(100svh - 150px)); }
   .layer-card { min-height: 0; }
+  .hotspot { padding: 0.2rem; gap: 0; }
+  .hotspot span { display: none; }
+  .hotspot.is-active span { display: inline; padding: 0 0.5rem 0 0.4rem; }
   .media-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .gallery { grid-template-columns: minmax(0, 1fr); }
 }
