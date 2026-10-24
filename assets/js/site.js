@@ -144,7 +144,7 @@
     const sio = new IntersectionObserver(es => es.forEach(en => {
       if (!en.isIntersecting) return;
       sio.unobserve(en.target);
-      (satinMod ||= import('./satin.js?v=e3c0c947')).then(m => m.mount(en.target, en.target.dataset.satin)).catch(() => {});
+      (satinMod ||= import('./satin.js?v=593744af')).then(m => m.mount(en.target, en.target.dataset.satin)).catch(() => {});
     }), { rootMargin: '300px 0px' });
     satins.forEach(el => sio.observe(el));
   }
