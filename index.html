@@ -101,12 +101,13 @@
     </div>
   </section>
 
-  <section class="section" aria-labelledby="clinic-title">
+  <section class="section" data-satin="cream" aria-labelledby="clinic-title">
     <div class="wrap clinic">
-      <div class="arch-wrap">
+      <div class="arch-wrap" data-tilt>
         <figure class="arch">
           <video class="autoplay" muted loop playsinline preload="none" poster="assets/img/clinic-broll-poster.webp" data-src="assets/video/clinic-broll.mp4" aria-label="Inside an Evessé treatment room"></video>
         </figure>
+        <figure class="arch-inset"><img src="assets/img/room-devices.webp" srcset="assets/img/room-devices-sm.webp 720w, assets/img/room-devices.webp 1400w" sizes="(max-width: 900px) 40vw, 18vw" alt="A treatment room with medical-grade devices" loading="lazy" decoding="async"></figure>
         <div class="arch-badge glass-light"><strong>Two clinics</strong><span>DHA Phase 6 · North Nazimabad</span></div>
       </div>
       <div class="clinic__text">
@@ -137,7 +138,7 @@
     </div>
   </section>
 
-  <section class="section night grain" id="layers" aria-labelledby="layers-title">
+  <section class="section night grain" data-satin="dark" id="layers" aria-labelledby="layers-title">
     <div class="wrap">
       <div class="layers__head">
         <h2 id="layers-title">Treatment, layer by <span class="script">layer</span></h2>
@@ -173,7 +174,7 @@
     </div>
   </section>
 
-  <section class="section sage" id="markers" aria-labelledby="mk-title">
+  <section class="section sage" data-satin="sage" id="markers" aria-labelledby="mk-title">
     <div class="wrap markers">
       <div>
         <div class="markers__head">
@@ -192,16 +193,16 @@
           <div><a class="btn btn--gilt" href="treatments.html#hair">Hair restoration at Evessé</a></div>
         </div>
       </div>
-      <figure class="mk-media">
+      <figure class="mk-media" data-tilt>
         <video class="autoplay" muted loop playsinline preload="none" poster="assets/img/hair-macro-poster.webp" data-src="assets/video/hair-macro.mp4" aria-label="Magnified hair shaft under heat"></video>
         <figcaption>What a flat iron does to a hair shaft — from Evessé’s hair series.</figcaption>
       </figure>
     </div>
   </section>
 
-  <section class="section night grain" aria-labelledby="dr-title">
+  <section class="section night grain" data-satin="dark" aria-labelledby="dr-title">
     <div class="wrap doctor">
-      <figure class="doctor__portrait"><div class="frame"><img src="assets/img/dr-reception.webp" srcset="assets/img/dr-reception-sm.webp 720w, assets/img/dr-reception.webp 1400w" sizes="(max-width: 900px) 100vw, 42vw" alt="Dr. Faria Khan reviewing a patient file at the Evessé reception" loading="lazy" decoding="async"></div><figcaption class="glass">Founder · Consultant Dermatologist</figcaption></figure>
+      <figure class="doctor__portrait" data-tilt><div class="frame"><img src="assets/img/dr-reception.webp" srcset="assets/img/dr-reception-sm.webp 720w, assets/img/dr-reception.webp 1400w" sizes="(max-width: 900px) 100vw, 42vw" alt="Dr. Faria Khan reviewing a patient file at the Evessé reception" loading="lazy" decoding="async"></div><figcaption class="glass">Founder · Consultant Dermatologist</figcaption></figure>
       <div class="doctor__text">
         <h2 id="dr-title">Dr. Faria Khan <span class="script">the doctor, the academic, the founder</span></h2>
         <p class="doctor__title">Consultant Dermatologist &amp; Aesthetic Physician · Assistant Professor, Abbasi Shaheed Hospital / KMDC</p>
@@ -222,7 +223,7 @@
     </div>
   </section>
 
-  <section class="section night-2" aria-labelledby="reels-title">
+  <section class="section night-2" data-satin="dark" aria-labelledby="reels-title">
     <div class="wrap">
       <div class="reels-head">
         <h2 id="reels-title">From the clinic <span class="script">floor</span></h2>
@@ -239,7 +240,7 @@
         <p class="lede">Start with a consultation. You leave with a diagnosis and a written plan — and you decide what happens next.</p>
         <a class="btn" href="#book">Book a consultation</a>
       </div>
-      <figure class="still__img reveal"><img src="assets/img/business-card.webp" srcset="assets/img/business-card-sm.webp 720w, assets/img/business-card.webp 1400w" sizes="(max-width: 900px) 100vw, 40vw" alt="A gloved hand holding an Evessé card that reads: Your face is your business card. Invest in it." loading="lazy" decoding="async"></figure>
+      <figure class="still__img reveal" data-tilt><img src="assets/img/business-card.webp" srcset="assets/img/business-card-sm.webp 720w, assets/img/business-card.webp 1400w" sizes="(max-width: 900px) 100vw, 40vw" alt="A gloved hand holding an Evessé card that reads: Your face is your business card. Invest in it." loading="lazy" decoding="async"></figure>
     </div>
   </section>
 
@@ -263,7 +264,7 @@
 </section>
 
 
-  <section class="section paper-2" aria-labelledby="clinics-title">
+  <section class="section paper-2" data-satin="blush" aria-labelledby="clinics-title">
     <div class="wrap">
       <div class="clinics-head">
         <h2 id="clinics-title">Two clinics. <span class="script">One standard</span></h2>
@@ -296,7 +297,7 @@
   </section>
 </main>
 <script type="application/json" id="ev-data">{"layers": [{"id": "epidermis", "n": "01", "name": "Epidermis", "depth": "Surface · 0.05–1.5 mm", "lead": "The skin you see and touch — tone, texture, pigment and the moisture barrier.", "tx": [["Signature Rejuvenating Facial", "Brightness, hydration"], ["Chemical & no-downtime peels", "Tone, texture"], ["Pigmentation care", "Dark spots, melasma"], ["Acne & scar care", "Breakouts, marks"]]}, {"id": "dermis", "n": "02", "name": "Dermis", "depth": "Support · 1–4 mm", "lead": "Collagen, elastin and blood supply — the scaffold that keeps skin firm.", "tx": [["Microneedling", "Collagen, fine lines"], ["Skin boosters", "Deep hydration"], ["Dermal fillers", "Volume, contour"], ["Non-surgical thread lift", "Lift, laxity"]]}, {"id": "follicle", "n": "03", "name": "Hair follicle", "depth": "Rooted · 3–5 mm", "lead": "Every hair grows from a follicle in the dermis, fed by blood, hormones and nutrients.", "tx": [["Hair-loss bloodwork", "Ferritin, D, B12, zinc, TSH"], ["PRP", "Growth factors"], ["QR678® · Dutexome", "Follicle support"], ["Laser hair removal", "Unwanted hair"]]}, {"id": "hypodermis", "n": "04", "name": "Fat & muscle", "depth": "Deep · below 4 mm", "lead": "Fat, fascia and the muscles of expression — where shape and movement come from.", "tx": [["Botulinum toxin", "Expression lines"], ["Barbie tox", "Trapezius slimming"], ["Body contouring", "Shape"], ["Medical weight management", "Body composition"]]}], "markers": [{"k": "ferritin", "name": "Ferritin", "unit": "ng/mL", "low": "< 17", "lowNote": "Thinning hair and increased shedding", "good": "> 30", "goodNote": "Stronger hair growth", "a": 17, "b": 30, "max": 60}, {"k": "vitd", "name": "Vitamin D", "unit": "ng/mL", "low": "< 20", "lowNote": "Persistent shedding, poor response to treatment", "good": "> 30", "goodNote": "Better support for the hair growth cycle", "a": 20, "b": 30, "max": 60}, {"k": "b12", "name": "Vitamin B12", "unit": "ng/mL", "low": "< 220", "lowNote": "Weak hair, shedding, low density", "good": "> 250", "goodNote": "Stronger, more resilient hair", "a": 220, "b": 250, "max": 500}, {"k": "zinc", "name": "Zinc", "unit": "mcg/dL", "low": "< 53", "lowNote": "Fragile, brittle, lifeless hair", "good": "> 70", "goodNote": "Better structure and strength", "a": 53, "b": 70, "max": 120}, {"k": "tsh", "name": "TSH", "unit": "mIU/L", "low": "> 5.5", "lowNote": "Slow metabolism, possible hair loss", "good": "0.5 – 2", "goodNote": "Better balance for the hair cycle", "a": 2, "b": 5.5, "max": 8, "inverse": true}]}</script>
-<footer class="footer">
+<footer class="footer" data-satin="dark">
   <div class="wrap">
     <div class="footer__mast">
       <div style="display:grid;gap:1.5rem;justify-items:start">

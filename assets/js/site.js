@@ -137,6 +137,30 @@
     sio.observe(stage);
   }
 
+  /* ── 3D satin backgrounds (lazy, per section) ── */
+  const satins = $$('[data-satin]');
+  if (satins.length) {
+    let satinMod = null;
+    const sio = new IntersectionObserver(es => es.forEach(en => {
+      if (!en.isIntersecting) return;
+      sio.unobserve(en.target);
+      (satinMod ||= import('./satin.js')).then(m => m.mount(en.target, en.target.dataset.satin)).catch(() => {});
+    }), { rootMargin: '300px 0px' });
+    satins.forEach(el => sio.observe(el));
+  }
+
+  /* ── depth tilt on image plates (desktop pointers) ── */
+  if (fine && !reduce) $$('[data-tilt]').forEach(el => {
+    let raf = 0;
+    el.addEventListener('pointermove', e => {
+      const r = el.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => { el.classList.add('is-tilting'); el.style.transform = `perspective(1100px) rotateY(${x * 7}deg) rotateX(${-y * 6}deg) translateZ(0)`; });
+    });
+    el.addEventListener('pointerleave', () => { cancelAnimationFrame(raf); el.classList.remove('is-tilting'); el.style.transform = ''; });
+  });
+
   /* ── hero lens ── */
   const hero = $('#hero');
   if (hero && $('.hero__canvas', hero)) {

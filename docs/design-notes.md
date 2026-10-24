@@ -63,3 +63,9 @@ Palette lifted from her posters: wine #6e1423, oxblood band, gold foil, cream ca
 | Mobile | 8 | 9 | Glass dock (Book · Call · Ask) after the hero; chat docks above it |
 | Smoothness | 8 | 9 | Lenis lerp scroll, rAF-throttled scroll work, frame-rate independent 3D, page cross-fades, lighter blur on phones |
 | Scrollbar | — | — | Gold-on-oxblood themed scrollbars |
+
+## v3 — frames and 3D backgrounds
+
+- Removed every arched ("mihrab") image frame. Photos now sit on rounded plates with an inner gold hairline and an offset gold mount line behind them, plus a gentle 3D tilt on desktop hover.
+- Clinic section recomposed: tall video plate + overlapping inset photo + glass "Two clinics" badge + offset mount.
+- 3D satin backgrounds (WebGL, `assets/js/satin.js`): lit, slowly moving silk drapes in oxblood (dark sections), forest (hair markers), cream and blush (light sections). Low resolution, ~30 fps, paused off-screen; static frame under reduced motion.
