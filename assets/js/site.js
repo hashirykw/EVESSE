@@ -131,7 +131,7 @@
     const sio = new IntersectionObserver(es => {
       if (es.some(e => e.isIntersecting)) {
         sio.disconnect();
-        import('./skin3d.js').then(m => m.init(stage, data.layers || [])).catch(err => { console.warn(err); stage.querySelector('.stage__loading').textContent = '3D view unavailable on this device — use the layer list.'; });
+        import('./skin3d.js?v=0b416042').then(m => m.init(stage, data.layers || [])).catch(err => { console.warn(err); stage.querySelector('.stage__loading').textContent = '3D view unavailable on this device — use the layer list.'; });
       }
     }, { rootMargin: '400px 0px' });
     sio.observe(stage);
@@ -144,7 +144,7 @@
     const sio = new IntersectionObserver(es => es.forEach(en => {
       if (!en.isIntersecting) return;
       sio.unobserve(en.target);
-      (satinMod ||= import('./satin.js')).then(m => m.mount(en.target, en.target.dataset.satin)).catch(() => {});
+      (satinMod ||= import('./satin.js?v=e3c0c947')).then(m => m.mount(en.target, en.target.dataset.satin)).catch(() => {});
     }), { rootMargin: '300px 0px' });
     satins.forEach(el => sio.observe(el));
   }
@@ -164,7 +164,7 @@
   /* ── hero lens ── */
   const hero = $('#hero');
   if (hero && $('.hero__canvas', hero)) {
-    import('./hero-lens.js').then(m => m.init(hero)).catch(err => console.warn(err));
+    import('./hero-lens.js?v=3e4e9dba').then(m => m.init(hero)).catch(err => console.warn(err));
   }
 
   /* ── five markers ── */
