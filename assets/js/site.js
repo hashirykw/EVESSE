@@ -34,9 +34,9 @@
       }, reduce ? 0 : 380);
     };
     const start = performance.now();
-    const ready = () => setTimeout(done, Math.max(0, (reduce ? 200 : 1150) - (performance.now() - start)));
+    const ready = () => setTimeout(done, Math.max(0, (reduce ? 200 : 1250) - (performance.now() - start)));
     if (document.readyState === 'complete') ready(); else addEventListener('load', ready, { once: true });
-    setTimeout(done, 2000); // hard cap on slow networks
+    setTimeout(done, 2200); // hard cap on slow networks
   }
 
   /* ── smooth scroll (desktop pointers only) ── */
